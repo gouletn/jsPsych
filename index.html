@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My experiment</title>
+        <script src= "jspsych.js"></script>
+        <script src="plugins/jspsych-html-keyboard-response.js"></script>
+        <script src="plugins/jspsych-categorize-image.js"></script>
+        <link href="css/jspsych.css" rel="stylesheet" type="text/css"></link>
+    </head>
+    <body></body>
+    <script>
+
+    var hello_trial = {
+        type: 'html-keyboard-response',
+        stimulus: 'Hello world!',
+        prompt: 'Press K or L'
+    }
+
+    var timeline = [hello_trial]
+    
+    for(i=0; i< 600; i++){
+
+
+
+        
+        var categorization_trial = {
+            type: 'categorize-image',
+            stimulus: 'examples/img/sad_face_4.jpg',
+            choices: ['k','l'],
+            key_answer: 75,
+            feedback_duration: 1000
+        }
+        timeline.push(categorization_trial)
+    }
+
+
+    jsPsych.init({
+        timeline: timeline
+    })
+    
+    
+    
+    </script>
+</html>
